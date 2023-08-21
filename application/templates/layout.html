@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cripto Exchange - {{ tittle }}</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <header>
+        <div>
+            <input type="checkbox" id="menu">
+            <label for="menu">
+                <img class="icono" src="static/menu.png" alt="">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/purchase">Comprar</a></li>
+                    <li><a href="/status">Estado</a></li>
+                    <li><a href="/sign_up">Registrate</a></li>
+                    <li><a href="/exchange_rates">Ver Cambio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer class="txt container">
+        <p> © Kenneth Colmenarez - 2023 </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Realizar Compra</title>
+</head>
+<body>
+    <h1>Realizar Compra</h1>
+
+    <form method="post" action="{{ url_for('purchase') }}">
+        <label for="currency_from">Moneda de Origen:</label>
+        <select id="currency_from" name="currency_from">
+            {% for currency in CURRENCIES %}
+                <option value="{{ currency }}" {% if currency_from == currency %}selected{% endif %}>{{ currency }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="amount_from">Cantidad:</label>
+        <input type="number" step="0.01" id="amount_from" name="amount_from" value="{{ amount_from }}"><br><br>
+
+        <label for="currency_to">Moneda de Destino:</label>
+        <select id="currency_to" name="currency_to">
+            <option value="EUR">EUR</option>
+        </select><br><br>
+
+        <button type="submit">Realizar Compra</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Nueva entrada</h1>
+
+<form action="/purchase" method="post">
+    {{ form.csrf_token }}
+    <div>
+        {{ form.date.label }}
+        {{ form.date }}
+        {% if form.date.errors %}
+        {% for mensaje in form.date.errors %}
+        <p class="error">{{ mensaje }}</p>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div>
+        {{ form.currency_from.label }}
+        {{ form.currency_from }}
+        {% if form.currency_from.errors %}
+        {% for mensaje in form.currency_from.errors %}
+        <p class="error">{{ mensaje }}</p>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div>
+        {{ form.amount_from.label }}
+        {{ form.amount_from(step=0.01, type="number", placeholder="Introduce un importe") }}
+        {% if form.amount_from.errors %}
+        {% for mensaje in form.amount_from.errors %}
+        <p class="error">{{ mensaje }}</p>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div>
+        {{ form.currency_to.label }}
+        {{ form.currency_to }}
+        {% if form.currency_to.errors %}
+        {% for mensaje in form.currency_to.errors %}
+        <p class="error">{{ mensaje }}</p>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div>
+        {{ form.amount_to.label }}
+        {{ form.amount_to(step=0.01, type="number", placeholder="Introduce un importe") }}
+        {% if form.amount_to.errors %}
+        {% for mensaje in form.amount_to.errors %}
+        <p class="error">{{ mensaje }}</p>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>
+{% endblock %}
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Compra de Divisas</title>
+</head>
+<body>
+    <h1>Compra de Divisas</h1>
+    
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        
+        <div>
+            {{ form.date.label }}<br>
+            {{ form.date(size=20) }}
+            {% for error in form.date.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        
+        <div>
+            {{ form.time.label }}<br>
+            {{ form.time(size=20) }}
+            {% for error in form.time.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        
+        <div>
+            {{ form.currency_from.label }}<br>
+            {{ form.currency_from() }}
+            {% for error in form.currency_from.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        
+        <div>
+            {{ form.amount_from.label }}<br>
+            {{ form.amount_from(size=20) }}
+            {% for error in form.amount_from.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        
+        <div>
+            {{ form.currency_to.label }}<br>
+            {{ form.currency_to() }}
+            {% for error in form.currency_to.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        
+        <div>
+            {{ form.amount_to.label }}<br>
+            {{ form.amount_to(size=20) }}
+            {% for error in form.amount_to.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+        </div>
+        
+        <div>
+            {{ form.submit() }}
+        </div>
+        
+        {% if form.errors %}
+        <div>
+            <span style="color: red;">{{ form.errors['general'][0] }}</span>
+        </div>
+        {% endif %}
+    </form>
+</body>
+</html>
+ -->
